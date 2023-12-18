@@ -1,0 +1,53 @@
+<fd-card cardType="table">
+  <fd-card-header>
+    <h2 fd-card-title>Abrechnungsdaten</h2>
+  </fd-card-header>
+  <fd-card-content>
+    <table
+      fd-table
+      [noBorderX]="true"
+      tabindex="0"
+      [noOuterBorder]="true"
+      [topBorder]="true"
+    >
+      <thead fd-table-header>
+        <tr fd-table-row>
+          <th fd-table-cell>Vertragskonto</th>
+          <th fd-table-cell>Abschlagsplan</th>
+          <th fd-table-cell>Fälliger Betrag ins.</th>
+          <th fd-table-cell>Offene Position ins.</th>
+          <th fd-table-cell>Mahnstufe</th>
+          <th fd-table-cell>Rechnung</th>
+        </tr>
+      </thead>
+      <tbody fd-table-body>
+        <tr fd-table-row *ngIf="selectedContract | async as selectedContract">
+          <td fd-table-cell>{{selectedContract.title}}</td>
+          <td fd-table-cell></td>
+          <td fd-table-cell></td>
+          <td fd-table-cell></td>
+          <td fd-table-cell><fd-icon font="SAP-icons-TNT" [glyph]="selectedContract.glyph"></fd-icon></td>
+          <td fd-table-cell></td>
+        </tr>
+        <tr fd-table-row [main]="true" [activable]="true" tabindex="0">
+          <td fd-table-cell>
+            <div style="width: 70%; display: inline-block">
+              <fd-select
+                (valueChange)="setContract(selectedValue)"
+                [(value)]="selectedValue"
+                [controlTemplate]="customSelectTemplate">
+                @for (option of contracts$ | async; track option) {
+                <li fd-option [value]="option">{{ option.title }}</li>
+                }
+                <ng-template #customSelectTemplate let-selected="selected">
+                  {{ selected?.value.name || 'Select an option' }}
+                </ng-template>
+              </fd-select>
+            </div>
+          </td>
+          <td fd-table-cell></td>
+        </tr>
+      </tbody>
+    </table>
+  </fd-card-content>
+</fd-card>

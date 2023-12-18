@@ -1,0 +1,99 @@
+<ng-template let-dialog let-dialogConfig="dialogConfig" #confirmationDialog>
+  <fd-dialog [dialogConfig]="dialogConfig" [dialogRef]="dialog">
+    <fd-dialog-header>
+      <h1 fd-title>Address Change</h1>
+    </fd-dialog-header>
+
+    <fd-dialog-body>
+      <form [formGroup]="addressGroup" (ngSubmit)="onSubmit()">
+      <div class="fd-container fd-form-layout-grid-container fd-form-layout-grid-container--vertical fd-form-group">
+        <div class="fd-row fd-form-item">
+          <div class="fd-col">
+            <label fd-form-label for="street"
+            >Straße / Hausnummer:
+            </label>
+          </div>
+          <div class="fd-col">
+            <div class="fd-row">
+              <div class="fd-col fd-col--4">
+                <fdp-input
+                  type="text"
+                  id="street"
+                  placeholder="Enter address"
+                  [formControlName]="'street'"
+                />
+              </div>
+              <div class="fd-col fd-col--8">
+                <fdp-input
+                  type="text"
+                  id="number"
+                  aria-label="Street Number"
+                  placeholder="Enter Street Number"
+                  [formControlName]="'number'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fd-row fd-form-item">
+          <div class="fd-col">
+            <label fd-form-label for="zip">PLZ / Stadt:</label>
+          </div>
+          <div class="fd-col">
+            <div class="fd-row">
+              <div class="fd-col fd-col--8">
+                <fdp-input
+                  type="text"
+                  id="zip"
+                  placeholder="Enter ZIP Code"
+                  [formControlName]="'zip'"
+                />
+              </div>
+              <div class="fd-col fd-col--4">
+                <fdp-input
+                  type="text"
+                  id="city"
+                  placeholder="Enter City"
+                  aria-label="City"
+                  [formControlName]="'city'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fd-row fd-form-item">
+          <div class="fd-col">
+            <label fd-form-label for="country">Land:</label>
+          </div>
+          <div class="fd-col">
+            <div class="fd-row">
+              <div class="fd-col fd-col--8">
+                <fdp-input
+                  type="text"
+                  id="country"
+                  placeholder="Enter country"
+                  [formControlName]="'country'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    </fd-dialog-body>
+
+    <fd-dialog-footer>
+      <fd-button-bar
+        fdType="emphasized"
+        label="Ändern"
+        (click)="onSubmit()"
+        [disabled]="!addressGroup.valid"
+        ariaLabel="Change address"
+      ></fd-button-bar>
+
+      <fd-button-bar label="Cancel" (click)="onCancel()" ariaLabel="Cancel"></fd-button-bar>
+    </fd-dialog-footer>
+  </fd-dialog>
+</ng-template>
+
+<button fd-button label="Address Change" (click)="openDialog(confirmationDialog)"></button>

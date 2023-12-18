@@ -1,0 +1,35 @@
+<fd-card cardType="object" class="docs-flex-item-margin">
+  <fd-card-header>
+    <fd-avatar
+      [glyph]="'account'"
+      [circle]="true"
+      size="s"
+      ariaLabel="avatar image"
+      title="avatar image"
+    ></fd-avatar>
+    <h3 fd-card-title>
+      <strong>{{ contract().title }}</strong>
+    </h3>
+  </fd-card-header>
+  <fd-card-content>
+    <div class="fd-card__content-container">
+      <div class="fd-card__content-section">
+        <div class="fd-card__content-group">
+          <div class="fd-card__content-group-text">
+            <span>Laufzeit</span>
+            <span
+              >{{ contract().duration.from | date : 'MM.dd.yyyy' }} -
+              {{ contract().duration.to | date : 'MM.dd.yyyy' }}</span
+            >
+          </div>
+        </div>
+        <div class="fd-card__content-group">
+          <div class="fd-card__content-group-text">
+            <span>Seriennummer</span>
+            <span>{{ contract().serialNumber }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fd-card-content>
+</fd-card>

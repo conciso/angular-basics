@@ -1,0 +1,8 @@
+{
+  "/sap": {
+    "target": "https://my1000120.de1.test.crm.cloud.sap",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

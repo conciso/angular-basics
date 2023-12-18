@@ -1,0 +1,17 @@
+<fd-shellbar>
+  <fd-shellbar-logo>
+    <a
+      href="#"
+      class="fd-shellbar__logo fd-shellbar__logo--image-replaced"
+      aria-label="SAP"
+    ></a>
+  </fd-shellbar-logo>
+  <fd-product-menu
+    [control]="selectedCustomerName()"
+    [closePopoverOnSelect]="true"
+    [items]="productMenuItems"
+  >
+  </fd-product-menu>
+</fd-shellbar>
+
+{{ selectedCustomerId() }}
