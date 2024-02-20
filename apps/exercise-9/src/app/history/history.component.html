@@ -1,0 +1,33 @@
+<fd-card>
+  <fd-card-header>
+    <h2 fd-card-title>Historie</h2>
+  </fd-card-header>
+  <fd-card-content class="card-content">
+    <fd-timeline
+      [dataSource]="ticketHistoryEntries()"
+      [axis]="'vertical'"
+      [layout]="'double'"
+
+      *ngIf="ticketHistoryEntries().length > 0"
+    >
+      <fd-timeline-node
+        *fdTimelineNodeDef="let timelineEntry"
+        [glyph]="timelineEntry.glyph"
+      >
+        <fd-timeline-node-header>
+          <fd-timeline-node-header-info>
+            <span fdTimelineNodeHeaderInfoTitle>{{timelineEntry.service.name }}</span>
+            <span fdTimelineNodeHeaderInfoText>{{ timelineEntry.title }}</span>
+            <div fdTimelineHeaderInfoSubTitle>
+              {{ timelineEntry.date | date : "MM.dd.yyyy 'um' hh:mm a" }}
+            </div>
+            <span fdTimelineNodeHeaderInfoText>{{ timelineEntry.status }}</span>
+          </fd-timeline-node-header-info>
+        </fd-timeline-node-header>
+        <fd-timeline-node-body
+          [content]="timelineEntry.post"
+        ></fd-timeline-node-body>
+      </fd-timeline-node>
+    </fd-timeline>
+  </fd-card-content>
+</fd-card>

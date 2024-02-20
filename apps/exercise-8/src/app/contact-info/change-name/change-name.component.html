@@ -1,0 +1,44 @@
+<button fd-button glyph="edit" title="edit" (click)="openDialog(nameDialog)"></button>
+
+<ng-template let-dialog let-dialogConfig="dialogConfig" #nameDialog>
+  <fd-dialog [dialogConfig]="dialogConfig" [dialogRef]="dialog">
+    <fd-dialog-header>
+      <h1 fd-title>Name Ändern</h1>
+    </fd-dialog-header>
+
+    <fd-dialog-body>
+      <form #nameForm="ngForm">
+        <div class="fd-container fd-form-layout-grid-container fd-form-layout-grid-container--vertical fd-form-group">
+          <div class="fd-row fd-form-item">
+            <div class="fd-col">
+              <label fd-form-label for="name">Name:</label>
+            </div>
+            <div class="fd-col">
+              <div class="fd-row">
+                <div class="fd-col fd-col--8">
+                  <fdp-input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </fd-dialog-body>
+
+    <fd-dialog-footer>
+      <fd-button-bar
+        fdType="emphasized"
+        label="Ändern"
+        (click)="onSubmit(nameForm.value)"
+        ariaLabel="Change name"
+      ></fd-button-bar>
+
+      <fd-button-bar label="Cancel" (click)="onCancel()" ariaLabel="Cancel"></fd-button-bar>
+    </fd-dialog-footer>
+  </fd-dialog>
+</ng-template>

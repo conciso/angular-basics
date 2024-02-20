@@ -1,0 +1,16 @@
+<fd-card>
+  <fd-card-header>
+    <h2 fd-card-title>Sonstige Verträge</h2>
+  </fd-card-header>
+  <fd-card-content>
+    <fd-layout-grid>
+      <div fdLayoutGridRow>
+        @for(contract of additionalContracts; track contract) {
+        <div [fdLayoutGridCol]="6">
+          <abs-contract-card [contract]="contract"></abs-contract-card>
+        </div>
+        }
+      </div>
+    </fd-layout-grid>
+  </fd-card-content>
+</fd-card>

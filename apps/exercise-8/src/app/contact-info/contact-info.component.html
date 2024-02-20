@@ -1,0 +1,51 @@
+<fd-card cardType="quickView">
+  <fd-card-header>
+    <h2 fd-card-title>Kontaktinformationen</h2>
+  </fd-card-header>
+  <fd-card-content>
+    <fd-quick-view [id]="customer().id">
+      <fd-quick-view-subheader>
+        @for (attachment of customer().attachments; track attachment) {
+        <fd-avatar [image]="attachment.url" size="s"></fd-avatar>
+        }
+        <fd-quick-view-subheader-title>
+          {{ customer().primaryContactformattedName }} <abs-change-name [nameToChange]="customer().primaryContactformattedName" (changeName)="changeName.emit($event)"></abs-change-name>
+        </fd-quick-view-subheader-title>
+      </fd-quick-view-subheader>
+      <fd-quick-view-group>
+        <fd-quick-view-group-item>
+          <fd-quick-view-group-item-label>
+            Adresse
+          </fd-quick-view-group-item-label>
+          <fd-quick-view-group-item-content>
+            {{ customer().defaultAddress?.formattedPostalAddressDescription }}
+          </fd-quick-view-group-item-content>
+        </fd-quick-view-group-item>
+        <fd-quick-view-group-item>
+          <fd-quick-view-group-item-label>
+            Kundennummer
+          </fd-quick-view-group-item-label>
+          <fd-quick-view-group-item-content>
+            {{ customer().primaryContactDisplayId }}
+          </fd-quick-view-group-item-content>
+        </fd-quick-view-group-item>
+        <fd-quick-view-group-item>
+          <fd-quick-view-group-item-label>
+            Rolle
+          </fd-quick-view-group-item-label>
+          <fd-quick-view-group-item-content>
+            {{ customer().customerRoleDescription }}
+          </fd-quick-view-group-item-content>
+        </fd-quick-view-group-item>
+        <fd-quick-view-group-item>
+          <fd-quick-view-group-item-label>
+            Telefon
+          </fd-quick-view-group-item-label>
+          <fd-quick-view-group-item-content>
+            {{ customer().defaultCommunication?.phoneFormattedNumber }}
+          </fd-quick-view-group-item-content>
+        </fd-quick-view-group-item>
+      </fd-quick-view-group>
+    </fd-quick-view>
+  </fd-card-content>
+</fd-card>

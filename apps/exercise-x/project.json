@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "angular-basics-schulung",
-  "sourceRoot": "apps/exercise-1/src",
+  "sourceRoot": "apps/exercise-x/src",
   "tags": [],
   "targets": {
     "build": {
@@ -12,16 +12,16 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/apps/exercise-1",
-        "index": "apps/exercise-1/src/index.html",
-        "browser": "apps/exercise-1/src/main.ts",
+        "outputPath": "dist/apps/exercise-x",
+        "index": "apps/exercise-x/src/index.html",
+        "browser": "apps/exercise-x/src/main.ts",
         "polyfills": [
           "zone.js"
         ],
-        "tsConfig": "apps/exercise-1/tsconfig.app.json",
+        "tsConfig": "apps/exercise-x/tsconfig.app.json",
         "assets": [
-          "apps/exercise-1/src/favicon.ico",
-          "apps/exercise-1/src/assets",
+          "apps/exercise-x/src/favicon.ico",
+          "apps/exercise-x/src/assets",
           {
             "glob": "**/css_variables.css",
             "input": "./node_modules/@sap-theming/theming-base-content/content/Base/baseLib/",
@@ -34,7 +34,7 @@
           }
         ],
         "styles": [
-          "apps/exercise-1/src/styles.scss",
+          "apps/exercise-x/src/styles.scss",
           "./node_modules/@fundamental-ngx/core/styles/fundamental-ngx-core.css",
           "./node_modules/fundamental-styles/dist/fonts/sap_fonts.css",
           {
@@ -73,21 +73,21 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "exercise-1:build:production"
+          "buildTarget": "exercise-x:build:production"
         },
         "development": {
-          "buildTarget": "exercise-1:build:development"
+          "buildTarget": "exercise-x:build:development"
         }
       },
       "options": {
-        "proxyConfig": "apps/exercise-1/proxy.conf.json"
+        "proxyConfig": "apps/exercise-x/proxy.conf.json"
       },
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "exercise-1:build"
+        "buildTarget": "exercise-x:build"
       }
     },
     "lint": {
@@ -99,7 +99,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/exercise-1/jest.config.ts"
+        "jestConfig": "apps/exercise-x/jest.config.ts"
       }
     }
   }

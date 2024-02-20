@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/common/src",
   "prefix": "angular-basics-schulung",
-  "tags": [],
+  "tags": ["type:lib", "bc:contract"],
   "projectType": "library",
   "targets": {
     "test": {

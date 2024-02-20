@@ -1,0 +1,16 @@
+<div class="resize-quick-view">
+  <fd-card cardType="quickView">
+    <fd-card-header>
+      <h2 fd-card-title>Versorgungsverträge</h2>
+    </fd-card-header>
+    <fd-card-content>
+      <fd-layout-grid>
+        <div fdLayoutGridRow>
+            <div [fdLayoutGridCol]="4" *ngFor="let contract of supplyContracts | async">
+              <abs-supply-contract [contract]="contract" (contractSelected)="notify($event)"></abs-supply-contract>
+            </div>
+        </div>
+      </fd-layout-grid>
+    </fd-card-content>
+  </fd-card>
+</div>

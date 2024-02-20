@@ -1,0 +1,44 @@
+<fd-shellbar>
+  <fd-shellbar-logo>
+    <a
+      href="#"
+      class="fd-shellbar__logo fd-shellbar__logo--image-replaced"
+      aria-label="SAP"
+    ></a>
+  </fd-shellbar-logo>
+  <fd-product-menu
+    [control]="selectedCustomerName()"
+    [closePopoverOnSelect]="true"
+    [items]="productMenuItems"
+  >
+  </fd-product-menu>
+</fd-shellbar>
+
+<fd-layout-grid>
+  <div fdLayoutGridRow>
+    <div [fdLayoutGridCol]="4">
+      <abs-contact-info [customer]="customer()" (changeName)="changeName($event)"></abs-contact-info>
+    </div>
+    <div [fdLayoutGridCol]="8">
+      <abs-billing></abs-billing>
+    </div>
+  </div>
+
+  <div fdLayoutGridRow>
+    <div [fdLayoutGridCol]="4">
+      <div fdLayoutGridRow>
+        <div [fdLayoutGridCol]="12">
+          <abs-supply-contracts-card></abs-supply-contracts-card>
+        </div>
+        <div [fdLayoutGridCol]="12">
+          <abs-additional-contracts-card></abs-additional-contracts-card>
+        </div>
+      </div>
+    </div>
+    <div [fdLayoutGridCol]="8">
+      <abs-history
+        [ticketHistoryEntries]="customer().ticketHistory"
+      ></abs-history>
+    </div>
+  </div>
+</fd-layout-grid>
